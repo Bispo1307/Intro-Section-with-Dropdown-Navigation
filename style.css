@@ -238,13 +238,13 @@ main {
 
 .hero-cta h1 {
   width: 500px;
-  font-size: 76px;
+  font-size: 68px;
   font-weight: 700;
   margin-top: 80px;
 }
 
 .hero-cta p {
-  width: 480px;
+  width: 530px;
   font-size: 18px;
   font-weight: 500;
   margin-top: 40px;
@@ -262,7 +262,7 @@ main {
   color: var(--neutral-gray-50);
   background-color: var(--neutral-gray-950);
   border: 2px solid var(--neutral-gray-950);
-  margin: 60px 0 120px 0;
+  margin: 80px 0;
   transition: all 0.4s ease-out;
 }
 
@@ -285,38 +285,206 @@ main {
   object-fit: cover;
 }
 
-@media (min-width: 480px) and (max-width: 840px) {
+@media (min-width: 480px) and (max-width: 900px) {
   header {
-    padding: 20px 30px;
+    padding: 40px 70px;
   }
 
   header .logo {
-    margin-right: 30px;
+    width: 108px;
+    height: auto;
+    margin-right: 0;
   }
 
   .desktop-nav {
+    display: none;
+  }
+
+  .sign-up {
+    display: none;
+  }
+
+  .menu-mobile-icon {
+    display: block;
+    margin-left: auto;
+  }
+
+  .menu-mobile-icon .icon {
+    width: 38px;
+    height: auto;
+  }
+
+  .menu-mobile-icon button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+  }
+
+  .overlay {
+    width: 40%;
+  }
+
+  .menu-mobile.active ~ .overlay {
+    display: block;
+    opacity: 1;
+    max-height: 100vh;
+  }
+
+  .menu-mobile.active {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100vh;
+    background-color: var(--neutral-gray-50);
+    z-index: 99;
+    padding: 40px;
+    overflow-y: scroll;
+  }
+
+  .menu-mobile.active .close-menu {
+    width: 36px;
+    height: auto;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+  }
+
+  .menu-mobile.active .mobile-nav {
+    margin-top: calc(30px + 60px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .menu-mobile.active .mobile-nav .dropdown-mobile .arrow-up {
+    display: none;
+  }
+
+  .menu-mobile.active .mobile-nav .dropdown-mobile.show .arrow-down {
+    display: none;
+  }
+
+  .arrow-down {
+    width: 14px;
+    height: auto;
+  }
+
+  .menu-mobile.active .mobile-nav .dropdown-mobile.show .arrow-up {
+    display: inline;
+    margin: 0 0 2px 8px;
+    width: 14px;
+    height: auto;
+  }
+
+  .menu-mobile.active .mobile-nav ul {
+    list-style: none;
+  }
+
+  .menu-mobile.active .mobile-nav li {
+    display: flex;
+    align-items: center;
     gap: 14px;
   }
 
-  .desktop-nav a,
-  .desktop-nav span {
-    font-size: 18px;
-    margin-right: 4px;
+  .menu-mobile.active .mobile-nav li a,
+  .menu-mobile.active .mobile-nav li span {
+    color: var(--neutral-gray-500);
+    font-size: 26px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease-out;
   }
 
-  .sign-up a {
-    font-size: 18px;
-    margin-right: 16px;
+  .menu-mobile.active .mobile-nav li a:hover,
+  .menu-mobile.active .mobile-nav li span:hover {
+    color: var(--neutral-gray-950);
+  }
+  .menu-mobile.active .mobile-nav .dropdown-mobile.show {
+    display: block;
   }
 
-  .sign-up button {
-    font-size: 18px;
+  .menu-mobile.active .mobile-nav .dropdown-mobile .submenu {
+    display: none;
+  }
+
+  .menu-mobile.active .mobile-nav .dropdown-mobile.show .submenu {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    gap: 16px;
+    margin: 30px;
+  }
+
+  .menu-mobile.active .mobile-nav .dropdown-mobile.show .submenu a {
+    font-size: 24px;
+    transition: color 0.3s ease-out;
+  }
+
+  .menu-mobile.active .mobile-nav .dropdown-mobile.show .submenu a:hover {
+    color: var(--neutral-gray-950);
+  }
+
+  .mobile-nav .dropdown-mobile .submenu-features,
+  .mobile-nav .dropdown-mobile .submenu-company {
+    opacity: 0;
+    max-height: 0;
+    transition: max-height 0.5s ease, opacity 0.3s ease;
+  }
+
+  .mobile-nav .dropdown-mobile.show .submenu-features {
+    opacity: 1;
+    max-height: 120px;
+  }
+
+  .mobile-nav .dropdown-mobile.show .submenu-company {
+    opacity: 1;
+    max-height: 80px;
+  }
+
+  .menu-mobile.active
+    .mobile-nav
+    .dropdown-mobile.show
+    .submenu-features
+    li
+    img {
+    width: 20px;
+    height: auto;
+  }
+
+  .menu-mobile.active .sign-up {
+    margin: 60px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .menu-mobile.active .sign-up a {
+    color: var(--neutral-gray-500);
+    text-decoration: none;
+    font-size: 28px;
+  }
+
+  .menu-mobile.active .sign-up button {
+    font-size: 28px;
+    font-weight: 500;
+    padding: 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    color: var(--neutral-gray-500);
+    background-color: transparent;
+    border: 2px solid var(--neutral-gray-500);
   }
 
   main {
     width: 100%;
     height: auto;
-    padding: 60px 30px;
+    padding: 60px;
     display: flex;
     gap: 0;
     align-items: center;
@@ -526,7 +694,6 @@ main {
   .mobile-nav .dropdown-mobile .submenu-company {
     opacity: 0;
     max-height: 0;
-    overflow: hidden;
     transition: max-height 0.5s ease, opacity 0.3s ease;
   }
 
